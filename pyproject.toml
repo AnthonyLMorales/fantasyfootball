@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ffbot"
+version = "0.1.0"
+description = "Fantasy football decision bot for Sleeper and ESPN leagues, with a Claude-powered advisor"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=1.0",
+    "requests>=2.31",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ffbot = "ffbot.cli:main"
+
+[tool.setuptools]
+packages = ["ffbot", "ffbot.providers", "ffbot.analysis"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

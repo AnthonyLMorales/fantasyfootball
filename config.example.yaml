@@ -1,0 +1,34 @@
+# Copy this file to config.yaml and fill in your leagues.
+# config.yaml is git-ignored so your cookies never get committed.
+# Any value can reference an environment variable like ${ESPN_S2}.
+
+leagues:
+  # --- Sleeper (public API, no password needed) ---
+  # league_id: open the league in the Sleeper web app; it's the number in the URL
+  #   https://sleeper.com/leagues/<league_id>/team
+  # username: your Sleeper username (used to find your team in the league)
+  - name: Sleeper League 1
+    platform: sleeper
+    league_id: "123456789012345678"
+    username: your_sleeper_username
+
+  - name: Sleeper League 2
+    platform: sleeper
+    league_id: "987654321098765432"
+    username: your_sleeper_username
+
+  # --- ESPN ---
+  # league_id: the leagueId=... number in your ESPN league URL
+  # team_id:   the teamId=... number when viewing your own team (optional if swid is set)
+  # Private leagues also need two cookies from fantasy.espn.com (see README):
+  - name: ESPN League
+    platform: espn
+    league_id: "12345678"
+    season: 2026
+    team_id: 1
+    espn_s2: ${ESPN_S2}
+    swid: ${ESPN_SWID}
+
+  # Uncomment to keep a fake league around for testing:
+  # - name: Demo League
+  #   platform: demo
